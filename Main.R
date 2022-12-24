@@ -273,11 +273,14 @@ sgPriceAndPower <- ggplot(visualData, aes(x = price, y = power)) +
 print(sgPriceAndPower)
 
 # mật độ tập trung của xe có mốc 200 mã lực đổ lại
-sgnPriceAndPower <- ggplot(visualData, aes(x = price, y = power, color = power <= 200)) +
-  geom_point() +
-  stat_ellipse(type="norm") +
-  theme_minimal()
-print(sgnPriceAndPower)
+getEngine <- function(power){
+  sgnPriceAndPower <- ggplot(visualData, aes(x = price, y = power, color = power <= power)) +
+    geom_point() +
+    stat_ellipse(type="norm") +
+    theme_minimal()
+  sgnPriceAndPower
+}
+#print(sgnPriceAndPower)
 # partial correlation
 # se : logical value. If TRUE, confidence interval is displayed around smooth.
 
