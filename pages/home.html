@@ -17,6 +17,24 @@
     </div>
   </div>
 </div>
+<div class="px-2">
+  <h3>Dự đoán giá xe dựa vào mã lực</h3>
+  <div class="row">
+    <div class="col-lg-6 col-12">
+      {{ numericInput("powerPredict","Số mã lực",50) }}
+      {{ submitButton("Dự đoán") }}
+      <div>
+        Giá tin cậy: {{ textOutput("confidencePrice", inline = TRUE) }}$
+      </div>
+      <div>
+        Giá dự đoán {{ textOutput("predictPrice", inline = TRUE) }}$
+      </div>
+    </div>
+    <div class="col-lg-6 col-12">
+      {{ plotOutput("plotLinerPredict") }}
+    </div>
+  </div>
+</div>
 <style>
   /**
   The CSS scope page here

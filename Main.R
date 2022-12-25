@@ -305,10 +305,17 @@ print(sgYearAndPrice)
 # Tạo mô hình dự đoán số tiền bỏ ra khi mua xe có mã lực cho trước
 carPrices <- visualData$price
 carPowers <- visualData$power
-linearModelPricePerPower <- lm(carPowers ~ carPrices)
+linearModelPricePerPower <- lm(carPrices ~ carPowers)
 print(linearModelPricePerPower$coefficients)
 a <- linearModelPricePerPower$coefficients[1]
 b <- linearModelPricePerPower$coefficients[2]
+#Predict tạo ra khoảng tin cậy
+#Cột fit là giá trị medv được dự đoán khi đưa vào dữ liệu (data) mới là biến carPowers được gán cho 250,
+#lwr và upr là khoảng trên và khoảng dưới của khoảng dự đoán.
+ffff <- predict(linearModelPricePerPower, data.frame(carPowers=c(250)), interval="confidence")
+
+#Predict tạo ra khoảng dự đoán
+predict(linearModelPricePerPower, data.frame(carPowers=c(250)), interval="prediction")
 
 # ví dụ: ta cần mua 1 chiếc xe tầm 250 horsepowers thì mất bao nhiêu
 # áp dụng công thức y = a + bx (test)

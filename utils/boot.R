@@ -19,3 +19,17 @@ getEngine <- function(powerInput){
     stat_ellipse(type="norm") +
     theme_minimal()
 }
+carPrices <- visualData$price
+carPowers <- visualData$power
+linearModelPricePerPower <- lm(carPrices ~ carPowers)
+plot(carPowers, carPrices)
+abline(linearModelPricePerPower, lwd=3)
+plotPredict <- recordPlot()
+predictData <- function(powerInput) {
+  confidence <- predict(linearModelPricePerPower, data.frame(carPowers=c(powerInput)), interval="confidence")
+  prediction <- predict(linearModelPricePerPower, data.frame(carPowers=c(powerInput)), interval="prediction")
+  c(
+    confidence[1],
+    prediction[1]
+  )
+}
