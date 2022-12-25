@@ -21,3 +21,8 @@ columnName:
 * location: char
 * link: char
 * parseDate: char
+
+# Build docker
+```bash
+docker-compose up --build -d
+```

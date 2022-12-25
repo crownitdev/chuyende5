@@ -4,8 +4,7 @@ services:
 
   chuyende5:
     image: rocker/shiny:latest
-    build:
-      context: ./
+    build: .
     restart: always
     volumes:
       - .:/srv/shiny-server 
