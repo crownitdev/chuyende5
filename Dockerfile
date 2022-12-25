@@ -13,7 +13,9 @@ RUN apt-get update && apt-get install -y \
 RUN R -e 'install.packages(c(\
               "shiny", \
               "bslib", \
-              "ggplot2" \
+              "ggplot2", \
+              "dplyr", \
+              "tidyverse" \
             ))'
 
 # run app
