@@ -10,6 +10,9 @@ RUN apt-get update && apt-get install -y \
 
 # install R packages required 
 # Change the packages list to suit your needs
+
+RUN chown -R shiny:shiny /srv/shiny-server
+
 RUN R -e 'install.packages(c(\
               "shiny", \
               "bslib", \

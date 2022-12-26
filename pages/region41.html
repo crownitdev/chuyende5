@@ -21,17 +21,17 @@
   <h3>Dự đoán giá xe dựa vào mã lực</h3>
   <div class="row">
     <div class="col-lg-6 col-12">
-      {{ numericInput("powerPredict25","Số mã lực",50) }}
+      {{ numericInput("powerPredict41","Số mã lực",100) }}
       {{ submitButton("Dự đoán") }}
       <div>
-        Giá tin cậy: {{ textOutput("confidencePrice25", inline = TRUE) }}$
+        Giá tin cậy: {{ textOutput("confidencePrice41", inline = TRUE) }}$
       </div>
       <div>
-        Giá dự đoán {{ textOutput("predictPrice25", inline = TRUE) }}$
+        Giá dự đoán {{ textOutput("predictPrice41", inline = TRUE) }}$
       </div>
     </div>
     <div class="col-lg-6 col-12">
-      {{ plotOutput("plotLinerPredict25") }}
+      {{ plotOutput("plotLinerPredict41") }}
     </div>
   </div>
 </div>
